@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:sipfupdate/pages/login_page.dart';
 import 'package:sipfupdate/pages/splash_page.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sipfupdate/pages/onboarding_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -11,20 +14,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: Future.delayed(
-          Duration(seconds: 1),
-        ),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return MaterialApp(
-              home: SplashPage(),
-            );
-          } else {
-            return MaterialApp(
-              home: LoginPage(),
-            );
-          }
-        });
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          textTheme: GoogleFonts.montserratTextTheme(
+        Theme.of(context).textTheme,
+      )),
+      home: OnboardingPage(),
+    );
   }
 }
