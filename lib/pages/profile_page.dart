@@ -35,14 +35,13 @@ class ProfilePage extends StatelessWidget {
                     topRight: Radius.circular(24),
                   ),
                 ),
-                //tombol
                 child: Padding(
                   padding: const EdgeInsets.all(24),
                   child: Column(children: [
                     Container(
                       height: 45,
                       decoration: BoxDecoration(
-                        color: Color(0xFF134736),
+                        color: Colors.green,
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Center(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BookingPage extends StatelessWidget {
-  const BookingPage({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,14 +35,13 @@ class BookingPage extends StatelessWidget {
                     topRight: Radius.circular(24),
                   ),
                 ),
-                //tombol
                 child: Padding(
                   padding: const EdgeInsets.all(24),
                   child: Column(children: [
                     Container(
                       height: 45,
                       decoration: BoxDecoration(
-                        color: Color(0xFF134736),
+                        color: Colors.green,
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Center(
