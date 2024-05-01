@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sipfupdate/pages/home_page.dart';
+import 'package:sipfupdate/navigation/navbar.dart';
 
 import '../controller/login_controller.dart';
 
@@ -162,9 +162,10 @@ class _LoginPageState extends State<LoginPage> {
                             onTap: snapShot.data != true
                                 ? () => {}
                                 : () => {
+                                      Navigator.pop(context),
                                       Navigator.pushReplacement(
                                         context,
-                                        MaterialPageRoute(builder: (context) => HomePage()),
+                                        MaterialPageRoute(builder: (context) => Navbar()),
                                       ),
                                     },
                             child: Container(
