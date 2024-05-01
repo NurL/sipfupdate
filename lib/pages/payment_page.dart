@@ -35,26 +35,28 @@ class PaymentPage extends StatelessWidget {
                     topRight: Radius.circular(24),
                   ),
                 ),
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(25.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                //tombol
+                child: Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Column(children: [
+                    Container(
+                      height: 45,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF0D2F24),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Bayar Sekarang",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
-              child: Center(
-                child: Text(
-                  "Bayar Sekarang",
-                  style: TextStyle(
-                    color: Color(0XFF134736),
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14,
-                  ),
+                  ]),
                 ),
               ),
             ),
