@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sipfupdate/pages/login_page.dart';
+import 'package:sipfupdate/pages/register_page.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
@@ -30,24 +32,34 @@ class OnboardingPage extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            Expanded(child: Container()),
+            Expanded(
+              child: Container(),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Expanded(
-                  child: Container(
-                    height: 45,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF134736),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Masuk",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 14,
+                  child: InkWell(
+                    onTap: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
+                      )
+                    },
+                    child: Container(
+                      height: 45,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF134736),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Masuk",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                          ),
                         ),
                       ),
                     ),
@@ -57,19 +69,25 @@ class OnboardingPage extends StatelessWidget {
                   width: 16,
                 ),
                 Expanded(
-                  child: Container(
-                    height: 45,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
+                  child: InkWell(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => RegisterPage()),
                     ),
-                    child: Center(
-                      child: Text(
-                        "Daftar",
-                        style: TextStyle(
-                          color: Color(0XFF134736),
-                          fontWeight: FontWeight.w600,
-                          fontSize: 14,
+                    child: Container(
+                      height: 45,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Daftar",
+                          style: TextStyle(
+                            color: Color(0XFF134736),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                          ),
                         ),
                       ),
                     ),

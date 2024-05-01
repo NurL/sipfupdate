@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'package:sipfupdate/pages/login_page.dart';
-import 'package:sipfupdate/pages/splash_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sipfupdate/pages/onboarding_page.dart';
 
