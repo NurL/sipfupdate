@@ -153,9 +153,6 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 100,
-                        ),
                         StreamBuilder(
                           stream: validation.submitValid,
                           builder: (_, snapShot) => InkWell(

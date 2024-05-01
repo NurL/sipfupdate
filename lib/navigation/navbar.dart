@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sipfupdate/pages/booking_page.dart';
+import 'package:sipfupdate/pages/history_page.dart';
 import 'package:sipfupdate/pages/home_page.dart';
+import 'package:sipfupdate/pages/profile_page.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -13,15 +16,9 @@ class _NavbarState extends State<Navbar> {
 
   final layout = [
     HomePage(),
-    Container(
-      color: Colors.blue,
-    ),
-    Container(
-      color: Colors.yellow,
-    ),
-    Container(
-      color: Colors.purple,
-    ),
+    HistoryPage(),
+    BookingPage(),
+    ProfilePage(),
   ];
 
   @override
@@ -39,6 +36,8 @@ class _NavbarState extends State<Navbar> {
           },
           currentIndex: _index,
           iconSize: 24,
+          unselectedItemColor: Colors.grey[500],
+          selectedItemColor: Color(0xFF0D2F24),
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Beranda'),
