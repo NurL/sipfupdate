@@ -19,6 +19,7 @@ class OnboardingPage extends StatelessWidget {
           children: [
             Text(
               'Futsal Tenang Tanpa Halangan',
+              textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 40,
                 color: Colors.white,
@@ -27,6 +28,7 @@ class OnboardingPage extends StatelessWidget {
             ),
             Text(
               'Pesan darimanapun dan kapanpun',
+              textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.white,
