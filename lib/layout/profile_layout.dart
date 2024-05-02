@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+class ProfileLayout extends StatelessWidget {
+  const ProfileLayout({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF0D2F24),
+      backgroundColor: const Color(0xFF0D2F24),
       body: SafeArea(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(24),
-              child: Container(
+            const Padding(
+              padding: EdgeInsets.all(24),
+              child: SizedBox(
                 height: 124,
                 child: Center(
                   child: Text(
@@ -28,8 +28,8 @@ class ProfilePage extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                padding: EdgeInsets.all(24),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.all(24),
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(24),
@@ -42,7 +42,7 @@ class ProfilePage extends StatelessWidget {
                     //NAMA
                     Container(
                       alignment: Alignment.centerLeft,
-                      child: Text(
+                      child: const Text(
                         'Nama',
                         style: TextStyle(color: Colors.black),
                       ),
@@ -56,13 +56,13 @@ class ProfilePage extends StatelessWidget {
                             height: 45,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16),
-                              border: Border.all(width: 1, color: Color(0xffD6D6D6)),
+                              border: Border.all(width: 1, color: const Color(0xffD6D6D6)),
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Align(
                                 alignment: Alignment.centerLeft,
                                 child: Padding(
-                                  padding: const EdgeInsets.only(left: 16),
+                                  padding: EdgeInsets.only(left: 16),
                                   child: Text(
                                     "Nama",
                                     style: TextStyle(
@@ -82,7 +82,7 @@ class ProfilePage extends StatelessWidget {
 
                     Container(
                       alignment: Alignment.centerLeft,
-                      child: Text(
+                      child: const Text(
                         'Nomor HP',
                         style: TextStyle(color: Colors.black),
                       ),
@@ -96,13 +96,13 @@ class ProfilePage extends StatelessWidget {
                             height: 45,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16),
-                              border: Border.all(width: 1, color: Color(0xffD6D6D6)),
+                              border: Border.all(width: 1, color: const Color(0xffD6D6D6)),
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Align(
                                 alignment: Alignment.centerLeft,
                                 child: Padding(
-                                  padding: const EdgeInsets.only(left: 16),
+                                  padding: EdgeInsets.only(left: 16),
                                   child: Text(
                                     "Nomor HP",
                                     style: TextStyle(
@@ -121,7 +121,7 @@ class ProfilePage extends StatelessWidget {
                     //EMAIL
                     Container(
                       alignment: Alignment.centerLeft,
-                      child: Text(
+                      child: const Text(
                         'Email',
                         style: TextStyle(color: Colors.black),
                       ),
@@ -135,13 +135,13 @@ class ProfilePage extends StatelessWidget {
                             height: 45,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16),
-                              border: Border.all(width: 1, color: Color(0xffD6D6D6)),
+                              border: Border.all(width: 1, color: const Color(0xffD6D6D6)),
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Align(
                                 alignment: Alignment.centerLeft,
                                 child: Padding(
-                                  padding: const EdgeInsets.only(left: 16),
+                                  padding: EdgeInsets.only(left: 16),
                                   child: Text(
                                     "Email",
                                     style: TextStyle(
@@ -160,7 +160,7 @@ class ProfilePage extends StatelessWidget {
                     //ALAMAT
                     Container(
                       alignment: Alignment.centerLeft,
-                      child: Text(
+                      child: const Text(
                         'Alamat',
                         style: TextStyle(color: Colors.black),
                       ),
@@ -174,13 +174,13 @@ class ProfilePage extends StatelessWidget {
                             height: 45,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16),
-                              border: Border.all(width: 1, color: Color(0xffD6D6D6)),
+                              border: Border.all(width: 1, color: const Color(0xffD6D6D6)),
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Align(
                                 alignment: Alignment.centerLeft,
                                 child: Padding(
-                                  padding: const EdgeInsets.only(left: 16),
+                                  padding: EdgeInsets.only(left: 16),
                                   child: Text(
                                     "Alamat",
                                     style: TextStyle(
@@ -199,7 +199,7 @@ class ProfilePage extends StatelessWidget {
                     //Kata Sandi
                     Container(
                       alignment: Alignment.centerLeft,
-                      child: Text(
+                      child: const Text(
                         'Kata Sandi',
                         style: TextStyle(color: Colors.black),
                       ),
@@ -213,13 +213,13 @@ class ProfilePage extends StatelessWidget {
                             height: 45,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16),
-                              border: Border.all(width: 1, color: Color(0xffD6D6D6)),
+                              border: Border.all(width: 1, color: const Color(0xffD6D6D6)),
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Align(
                                 alignment: Alignment.centerLeft,
                                 child: Padding(
-                                  padding: const EdgeInsets.only(left: 16),
+                                  padding: EdgeInsets.only(left: 16),
                                   child: Text(
                                     "*********",
                                     style: TextStyle(
@@ -244,10 +244,10 @@ class ProfilePage extends StatelessWidget {
                         Container(
                           height: 45,
                           decoration: BoxDecoration(
-                            color: Color(0xFF134736),
+                            color: const Color(0xFF134736),
                             borderRadius: BorderRadius.circular(16),
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Text(
                               "Perbaharui Profil",
                               style: TextStyle(
@@ -266,10 +266,10 @@ class ProfilePage extends StatelessWidget {
                         Container(
                           height: 45,
                           decoration: BoxDecoration(
-                            color: Color(0xFF6EB49D),
+                            color: const Color(0xFF6EB49D),
                             borderRadius: BorderRadius.circular(16),
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Text(
                               "Lihat Voucher Kamus",
                               style: TextStyle(

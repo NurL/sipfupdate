@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HistoryPage extends StatefulWidget {
-  const HistoryPage({super.key});
+class HistoryLayout extends StatefulWidget {
+  const HistoryLayout({super.key});
 
   @override
-  State<HistoryPage> createState() => _HistoryPageState();
+  State<HistoryLayout> createState() => _HistoryLayoutState();
 }
 
-class _HistoryPageState extends State<HistoryPage> {
+class _HistoryLayoutState extends State<HistoryLayout> {
   bool _isClick = true;
 
   @override

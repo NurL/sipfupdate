@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:sipfupdate/navigation/navbar.dart';
+import 'package:sipfupdate/pages/home_page.dart';
+import 'package:sipfupdate/utils/color_constant.dart';
+import 'package:sipfupdate/utils/widget_constant.dart';
 
 import '../controller/login_controller.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key});
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -17,13 +19,13 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color(0xff134736),
+      backgroundColor: ColorConstant.primary,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(25.0),
+            const Padding(
+              padding: EdgeInsets.all(25.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -65,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             Expanded(
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(24),
@@ -81,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         Column(
                           children: [
-                            Container(
+                            const SizedBox(
                               width: double.infinity,
                               child: Text(
                                 'Email',
@@ -90,38 +92,31 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             StreamBuilder(
                               stream: validation.email,
                               builder: (_, snapShot) => TextField(
                                 onChanged: (val) => validation.sinkEmail.add(val),
-                                decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(50.0),
-                                      ),
-                                    ),
-                                    hintText: 'Email',
-                                    errorText:
-                                        snapShot.hasError ? snapShot.error.toString() : null),
+                                decoration: WidgetConstant.input(
+                                  hint: 'Email',
+                                  error: snapShot.hasError ? snapShot.error.toString() : null,
+                                ),
                                 keyboardType: TextInputType.emailAddress,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 40,
                             ),
-                            Container(
+                            const SizedBox(
                               width: double.infinity,
                               child: Text(
                                 'Kata Sandi',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
+                                style: TextStyle(fontSize: 20),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             StreamBuilder(
@@ -129,25 +124,16 @@ class _LoginPageState extends State<LoginPage> {
                               builder: (_, snapShot) => TextField(
                                 obscureText: _isObscure,
                                 onChanged: (val) => validation.sinkPassword.add(val),
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(50.0),
-                                    ),
-                                  ),
-                                  hintText: 'Password',
-                                  suffixIcon: IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        _isObscure ? _isObscure = false : _isObscure = true;
-                                      });
-                                    },
-                                    icon: _isObscure
-                                        ? Icon(Icons.visibility_off)
-                                        : Icon(Icons.visibility),
-                                  ),
-                                  errorText: snapShot.hasError ? snapShot.error.toString() : null,
-                                ),
+                                decoration: WidgetConstant.input(
+                                  hint: 'Password',
+                                  error: snapShot.hasError ? snapShot.error.toString() : null,
+                                ).copyWith(
+                                    suffixIcon: IconButton(
+                                  onPressed: () {
+                                    setState(() => _isObscure = !_isObscure);
+                                  },
+                                  icon: _isObscure ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
+                                )),
                                 keyboardType: TextInputType.text,
                               ),
                             ),
@@ -158,22 +144,21 @@ class _LoginPageState extends State<LoginPage> {
                           builder: (_, snapShot) => InkWell(
                             onTap: snapShot.data != true
                                 ? () => {}
-                                : () => {
-                                      Navigator.pop(context),
-                                      Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Navbar()),
-                                      ),
-                                    },
+                                : () {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const HomePage()),
+                                    );
+                                  },
                             child: Container(
                               height: 45,
                               decoration: BoxDecoration(
-                                color: snapShot.data != true ? Colors.grey[300] : Color(0xff134736),
-                                borderRadius: BorderRadius.all(
+                                color: snapShot.data != true ? Colors.grey[300] : const Color(0xff134736),
+                                borderRadius: const BorderRadius.all(
                                   Radius.circular(16),
                                 ),
                               ),
-                              child: Center(
+                              child: const Center(
                                 child: Text(
                                   'Masuk',
                                   style: TextStyle(
