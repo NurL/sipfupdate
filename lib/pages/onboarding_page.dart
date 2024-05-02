@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sipfupdate/pages/login_page.dart';
+import 'package:sipfupdate/components/button.dart';
 import 'package:sipfupdate/pages/register_page.dart';
+import 'package:sipfupdate/utils/color_constant.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
@@ -9,15 +10,15 @@ class OnboardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(top: 78, left: 24, right: 24, bottom: 52),
+        padding: const EdgeInsets.only(top: 78, left: 24, right: 24, bottom: 52),
         height: MediaQuery.sizeOf(context).height,
         width: MediaQuery.sizeOf(context).width,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(image: AssetImage('assets/onboardbg.jpg'), fit: BoxFit.cover),
         ),
         child: Column(
           children: [
-            Text(
+            const Text(
               'Futsal Tenang Tanpa Halangan',
               textAlign: TextAlign.left,
               style: TextStyle(
@@ -26,7 +27,7 @@ class OnboardingPage extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            Text(
+            const Text(
               'Pesan darimanapun dan kapanpun',
               textAlign: TextAlign.left,
               style: TextStyle(
@@ -41,58 +42,30 @@ class OnboardingPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Expanded(
-                  child: InkWell(
-                    onTap: () => {
+                  child: Button(
+                    title: 'Login',
+                    onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => LoginPage()),
-                      )
+                        MaterialPageRoute(builder: (context) => const RegisterPage()),
+                      );
                     },
-                    child: Container(
-                      height: 45,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF134736),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Masuk",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
-                    ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 16,
                 ),
                 Expanded(
-                  child: InkWell(
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => RegisterPage()),
-                    ),
-                    child: Container(
-                      height: 45,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Daftar",
-                          style: TextStyle(
-                            color: Color(0XFF134736),
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
-                    ),
+                  child: Button(
+                    title: 'Register',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const RegisterPage()),
+                      );
+                    },
+                    color: Colors.white,
+                    textColor: ColorConstant.primary,
                   ),
                 )
               ],

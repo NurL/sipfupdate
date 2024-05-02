@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class BookingPage extends StatelessWidget {
-  const BookingPage({super.key});
+class BookingLayout extends StatelessWidget {
+  const BookingLayout({super.key});
 
   @override
   Widget build(BuildContext context) {

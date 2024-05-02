@@ -1,94 +1,50 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:sipfupdate/layout/booking_layout.dart';
+import 'package:sipfupdate/layout/history_layout.dart';
+import 'package:sipfupdate/layout/home_layout.dart';
+import 'package:sipfupdate/layout/profile_layout.dart';
+import 'package:sipfupdate/utils/color_constant.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _index = 0;
+
+  final layout = [
+    const HomeLayout(),
+    const HistoryLayout(),
+    const BookingLayout(),
+    const ProfileLayout(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[800],
-      body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              //salam untuk user
-              padding: const EdgeInsets.all(24),
-              child: Text(
-                "Hi, user",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            Container(
-              padding: EdgeInsets.all(24),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(24),
-                  topRight: Radius.circular(24),
-                ),
-              ),
-              child: Column(
-                children: [
-                  Container(
-                    //carousel foto lapangan
-                    width: double.infinity,
-                    height: 384,
-                    child: Text('coba'),
-                    padding: EdgeInsets.all(25),
-                    color: Colors.grey[100],
-                  ),
-                ],
-              ),
-            ),
-            ListView(
-              children: [
-                //CAROUSEL FASILITAS
-                CarouselSlider(
-                  options: CarouselOptions(
-                    height: 180.0,
-                    enlargeCenterPage: true,
-                    autoPlay: true,
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    enableInfiniteScroll: true,
-                    autoPlayAnimationDuration: Duration(seconds: 1),
-                    viewportFraction: 0.8,
-                  ),
-                  items: [
-                    //1st Image of Slider
-                    Container(
-                      margin: EdgeInsets.all(6.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        image: DecorationImage(
-                          image: NetworkImage("assets/pujasera.jpg'"),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-
-                    //2nd Image of Slider
-                    Container(
-                      margin: EdgeInsets.all(6.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        image: DecorationImage(
-                          image: NetworkImage("assets/toilet.jpg'"),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            )
+      backgroundColor: ColorConstant.primary,
+      body: layout[_index],
+      bottomNavigationBar: SizedBox(
+        height: 60,
+        child: BottomNavigationBar(
+          onTap: (value) {
+            setState(() {
+              _index = value;
+            });
+          },
+          currentIndex: _index,
+          iconSize: 24,
+          unselectedItemColor: Colors.grey[500],
+          selectedItemColor: ColorConstant.primary,
+          type: BottomNavigationBarType.fixed,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Beranda'),
+            BottomNavigationBarItem(icon: Icon(Icons.document_scanner_rounded), label: 'Riwayat'),
+            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: 'Pemesanan'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
           ],
         ),
       ),
