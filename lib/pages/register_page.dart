@@ -182,9 +182,6 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 100,
-                        ),
                         StreamBuilder(
                           stream: validation.submitValid,
                           builder: (_, snapShot) => Container(

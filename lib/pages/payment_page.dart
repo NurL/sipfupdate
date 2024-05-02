@@ -35,13 +35,14 @@ class PaymentPage extends StatelessWidget {
                     topRight: Radius.circular(24),
                   ),
                 ),
+                //tombol
                 child: Padding(
                   padding: const EdgeInsets.all(24),
                   child: Column(children: [
                     Container(
                       height: 45,
                       decoration: BoxDecoration(
-                        color: Colors.green,
+                        color: Color(0xFF0D2F24),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Center(
