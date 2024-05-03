@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sipfupdate/components/button.dart';
+import 'package:sipfupdate/utils/color_constant.dart';
 
 class PaymentConfirmPage extends StatelessWidget {
   const PaymentConfirmPage({super.key});
@@ -66,22 +68,11 @@ class PaymentConfirmPage extends StatelessWidget {
                           size: 50,
                         ),
                       ),
-                      Container(
-                        height: 45,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF134736),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Kembali ke Beranda",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
+                      Button(
+                        title: 'Kembali ke Beranda',
+                        onTap: () {},
+                        color: ColorConstant.primary,
+                        textColor: Colors.white,
                       ),
                     ],
                   ),

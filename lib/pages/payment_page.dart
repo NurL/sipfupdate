@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:sipfupdate/components/button.dart';
+import 'package:sipfupdate/pages/payment_confirm_page.dart';
+import 'package:sipfupdate/utils/color_constant.dart';
 
 class PaymentPage extends StatelessWidget {
   const PaymentPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,40 +40,12 @@ class PaymentPage extends StatelessWidget {
                 //tombol
                 child: Padding(
                   padding: const EdgeInsets.all(24),
-                  child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                    Column(
-                      children: [
-                        Container(
-                          height: 45,
-                          padding: EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Row(
-                            children: [
-                              Icon(Icons.money),
-                              SizedBox(
-                                width: 4,
-                              ),
-                              Text(
-                                "Bayar Sekarang",
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 40,
-                        ),
-                        InkWell(
-                          onTap: () => {_displayBottomSheet(context)},
-                          child: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          Container(
                             height: 45,
                             padding: EdgeInsets.all(8),
                             decoration: BoxDecoration(
@@ -80,130 +54,159 @@ class PaymentPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(16),
                             ),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.credit_card_sharp),
-                                    SizedBox(
-                                      width: 4,
-                                    ),
-                                    Text(
-                                      "Transfer Virtual Accounts",
-                                      style: TextStyle(
-                                        color: Colors.grey,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                  ],
+                                Icon(Icons.money),
+                                SizedBox(
+                                  width: 4,
                                 ),
-                                Icon(Icons.arrow_drop_down_sharp),
+                                Text(
+                                  "Bayar Sekarang",
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14,
+                                  ),
+                                ),
                               ],
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Rinciyan Pembayaran',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
+                          SizedBox(
+                            height: 40,
                           ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Total Harga',
-                              style: TextStyle(
-                                fontSize: 14,
-                              ),
-                            ),
-                            Text(
-                              '200.0000',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Potongan Vocher',
-                              style: TextStyle(
-                                fontSize: 14,
-                              ),
-                            ),
-                            Text(
-                              '0',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Perlu Dibayar',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
-                              ),
-                            ),
-                            Text(
-                              'Rp. 200.000',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          height: 45,
-                          decoration: BoxDecoration(
-                            color: Color(0xFF0D2F24),
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Bayar Sekarang",
-                              style: TextStyle(
+                          InkWell(
+                            onTap: () => {
+                              _displayBottomSheet(context),
+                            },
+                            child: Container(
+                              height: 45,
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
                                 color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14,
+                                border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Icon(Icons.credit_card_sharp),
+                                      SizedBox(
+                                        width: 4,
+                                      ),
+                                      Text(
+                                        "Transfer Virtual Accounts",
+                                        style: TextStyle(
+                                          color: Colors.grey,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Icon(Icons.arrow_drop_down_sharp),
+                                ],
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    )
-                  ]),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Rinciyan Pembayaran',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Total Harga',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
+                              Text(
+                                '200.0000',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Potongan Vocher',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
+                              Text(
+                                '0',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Perlu Dibayar',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              Text(
+                                'Rp. 200.000',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Button(
+                            title: 'Bayar Sekarang',
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) => const PaymentConfirmPage(),
+                                ),
+                              );
+                            },
+                            color: ColorConstant.primary,
+                            textColor: Colors.white,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
