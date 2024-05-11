@@ -32,22 +32,27 @@ class ProfileLayout extends StatelessWidget {
                     //NAMA
                     Input(
                       text: 'Nama',
+                      borderColor: Colors.black,
                     ),
                     //NOMOR HP
                     Input(
                       text: 'Nomor HP',
+                      borderColor: Colors.black,
                     ),
                     //EMAIL
                     Input(
                       text: 'Email',
+                      borderColor: Colors.black,
                     ),
                     //ALAMAT
                     Input(
                       text: 'Alamat',
+                      borderColor: Colors.black,
                     ),
                     //KATA SANDI
                     Input(
                       text: '********',
+                      borderColor: Colors.black,
                     ),
 
                     Expanded(child: Container()),

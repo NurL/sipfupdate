@@ -136,9 +136,6 @@ class _LoginPageState extends State<LoginPage> {
                                   icon: _isObscure
                                       ? const Icon(Icons.visibility_off)
                                       : const Icon(Icons.visibility),
-                                  icon: _isObscure
-                                      ? const Icon(Icons.visibility_off)
-                                      : const Icon(Icons.visibility),
                                 )),
                                 keyboardType: TextInputType.text,
                               ),
@@ -158,27 +155,27 @@ class _LoginPageState extends State<LoginPage> {
                                       MaterialPageRoute(builder: (context) => const HomePage()),
                                     );
                                   },
-                            child: Container(
-                              height: 45,
-                              decoration: BoxDecoration(
-                                color: snapShot.data != true
-                                    ? Colors.grey[300]
-                                    : const Color(0xff134736),
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(16),
-                                ),
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  'Masuk',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 14,
-                                  ),
-                                ),
-                              ),
-                            ),
+                            // child: Container(
+                            //   height: 45,
+                            //   decoration: BoxDecoration(
+                            //     color: snapShot.data != true
+                            //         ? Colors.grey[300]
+                            //         : const Color(0xff134736),
+                            //     borderRadius: const BorderRadius.all(
+                            //       Radius.circular(16),
+                            //     ),
+                            //   ),
+                            //   child: const Center(
+                            //     child: Text(
+                            //       'Masuk',
+                            //       style: TextStyle(
+                            //         color: Colors.white,
+                            //         fontWeight: FontWeight.w600,
+                            //         fontSize: 14,
+                            //       ),
+                            //     ),
+                            //   ),
+                            // ),
                           ),
                         )
                       ],

@@ -32,16 +32,19 @@ class BookingLayout extends StatelessWidget {
                   const Input(
                     text: 'Pilih Tanggal',
                     icon: Icon(Icons.calendar_month),
+                    borderColor: Colors.black,
                   ),
                   SizedBox(height: 40),
                   const Input(
                     text: 'Pilih Lapangan',
                     icon: Icon(Icons.search),
+                    borderColor: Colors.black,
                   ),
                   SizedBox(height: 40),
                   const Input(
                     text: 'Pilih Jam',
                     icon: Icon(CupertinoIcons.clock),
+                    borderColor: Colors.black,
                   ),
                   Expanded(child: Container()),
                   NewWidget(

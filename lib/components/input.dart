@@ -7,9 +7,10 @@ class Input extends StatelessWidget {
     required this.text, //yang wajib diisi kalau dia dipanggil, parameter apapun yang wajib diisi dikasih require
     this.color = Colors.white,
     this.textColor = ColorConstant.primary,
-    this.borderColor = ColorConstant.tertiary,
+    //this.borderColor = ColorConstant.tertiary,
     this.label,
     this.icon,
+    required this.borderColor,
   });
 
   final String text;
