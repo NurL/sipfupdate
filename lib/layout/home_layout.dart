@@ -48,47 +48,42 @@ class HomeLayout extends StatelessWidget {
                 ],
               ),
             ),
-            ListView(
-              children: [
-                //CAROUSEL FASILITAS
-                CarouselSlider(
-                  options: CarouselOptions(
-                    height: 180.0,
-                    enlargeCenterPage: true,
-                    autoPlay: true,
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    enableInfiniteScroll: true,
-                    autoPlayAnimationDuration: Duration(seconds: 1),
-                    viewportFraction: 0.8,
+            CarouselSlider(
+              options: CarouselOptions(
+                height: 180.0,
+                enlargeCenterPage: true,
+                autoPlay: true,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: true,
+                autoPlayAnimationDuration: Duration(seconds: 1),
+                viewportFraction: 0.8,
+              ),
+              items: [
+                //1st Image of Slider
+                Container(
+                  margin: EdgeInsets.all(6.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: DecorationImage(
+                      image: NetworkImage("assets/pujasera.jpg'"),
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                  items: [
-                    //1st Image of Slider
-                    Container(
-                      margin: EdgeInsets.all(6.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        image: DecorationImage(
-                          image: NetworkImage("assets/pujasera.jpg'"),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
+                ),
 
-                    //2nd Image of Slider
-                    Container(
-                      margin: EdgeInsets.all(6.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        image: DecorationImage(
-                          image: NetworkImage("assets/toilet.jpg'"),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                //2nd Image of Slider
+                Container(
+                  margin: EdgeInsets.all(6.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: DecorationImage(
+                      image: NetworkImage("assets/toilet.jpg'"),
+                      fit: BoxFit.cover,
                     ),
-                  ],
+                  ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

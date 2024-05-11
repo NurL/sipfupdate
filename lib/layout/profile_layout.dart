@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sipfupdate/components/app_header.dart';
+import 'package:sipfupdate/components/button.dart';
+import 'package:sipfupdate/components/input.dart';
+import 'package:sipfupdate/layout/home_layout.dart';
+import 'package:sipfupdate/utils/color_constant.dart';
 
 class ProfileLayout extends StatelessWidget {
   const ProfileLayout({super.key});
@@ -10,22 +15,7 @@ class ProfileLayout extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.all(24),
-              child: SizedBox(
-                height: 124,
-                child: Center(
-                  child: Text(
-                    "Profil",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            AppHeader(title: 'Profil'),
             Expanded(
               child: Container(
                 padding: const EdgeInsets.all(24),
@@ -40,247 +30,51 @@ class ProfileLayout extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     //NAMA
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: const Text(
-                        'Nama',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),
-
-                    Padding(
-                      padding: const EdgeInsets.only(top: 4),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 45,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              border: Border.all(width: 1, color: const Color(0xffD6D6D6)),
-                            ),
-                            child: const Center(
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: Padding(
-                                  padding: EdgeInsets.only(left: 16),
-                                  child: Text(
-                                    "Nama",
-                                    style: TextStyle(
-                                      color: Color(0xFF030907),
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                    Input(
+                      text: 'Nama',
                     ),
                     //NOMOR HP
-
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: const Text(
-                        'Nomor HP',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),
-
-                    Padding(
-                      padding: const EdgeInsets.only(top: 4),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 45,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              border: Border.all(width: 1, color: const Color(0xffD6D6D6)),
-                            ),
-                            child: const Center(
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: Padding(
-                                  padding: EdgeInsets.only(left: 16),
-                                  child: Text(
-                                    "Nomor HP",
-                                    style: TextStyle(
-                                      color: Color(0xFF030907),
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                    Input(
+                      text: 'Nomor HP',
                     ),
                     //EMAIL
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: const Text(
-                        'Email',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),
-
-                    Padding(
-                      padding: const EdgeInsets.only(top: 4),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 45,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              border: Border.all(width: 1, color: const Color(0xffD6D6D6)),
-                            ),
-                            child: const Center(
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: Padding(
-                                  padding: EdgeInsets.only(left: 16),
-                                  child: Text(
-                                    "Email",
-                                    style: TextStyle(
-                                      color: Color(0xFF030907),
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                    Input(
+                      text: 'Email',
                     ),
                     //ALAMAT
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: const Text(
-                        'Alamat',
-                        style: TextStyle(color: Colors.black),
-                      ),
+                    Input(
+                      text: 'Alamat',
+                    ),
+                    //KATA SANDI
+                    Input(
+                      text: '********',
                     ),
 
-                    Padding(
-                      padding: const EdgeInsets.only(top: 4),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 45,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              border: Border.all(width: 1, color: const Color(0xffD6D6D6)),
-                            ),
-                            child: const Center(
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: Padding(
-                                  padding: EdgeInsets.only(left: 16),
-                                  child: Text(
-                                    "Alamat",
-                                    style: TextStyle(
-                                      color: Color(0xFF030907),
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    //Kata Sandi
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: const Text(
-                        'Kata Sandi',
-                        style: TextStyle(color: Colors.black),
-                      ),
+                    Expanded(child: Container()),
+
+                    //TOMBOL PERBAHARUI
+                    Button(
+                      title: 'Perbaharui Profil',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const HomeLayout()),
+                        );
+                      },
                     ),
 
-                    Padding(
-                      padding: const EdgeInsets.only(top: 4),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 45,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              border: Border.all(width: 1, color: const Color(0xffD6D6D6)),
-                            ),
-                            child: const Center(
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: Padding(
-                                  padding: EdgeInsets.only(left: 16),
-                                  child: Text(
-                                    "*********",
-                                    style: TextStyle(
-                                      color: Color(0xFF030907),
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    // Expanded(
-                    //   child: Container(),
-                    // ),
-                    //tombol perbaharui
-                    Column(
-                      children: [
-                        Container(
-                          height: 45,
-                          decoration: BoxDecoration(
-                            color: const Color(0xFF134736),
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              "Perbaharui Profil",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    //tombol voucher
-                    Column(
-                      children: [
-                        Container(
-                          height: 45,
-                          decoration: BoxDecoration(
-                            color: const Color(0xFF6EB49D),
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              "Lihat Voucher Kamus",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                    SizedBox(height: 12),
+
+                    //TOMBOL VOUCHER
+                    Button(
+                      title: 'Lihat Voucher Kamu',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const HomeLayout()),
+                        );
+                      },
+                      color: ColorConstant.secondary,
                     ),
                   ],
                 ),

@@ -132,7 +132,9 @@ class _LoginPageState extends State<LoginPage> {
                                   onPressed: () {
                                     setState(() => _isObscure = !_isObscure);
                                   },
-                                  icon: _isObscure ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
+                                  icon: _isObscure
+                                      ? const Icon(Icons.visibility_off)
+                                      : const Icon(Icons.visibility),
                                 )),
                                 keyboardType: TextInputType.text,
                               ),
@@ -153,7 +155,9 @@ class _LoginPageState extends State<LoginPage> {
                             child: Container(
                               height: 45,
                               decoration: BoxDecoration(
-                                color: snapShot.data != true ? Colors.grey[300] : const Color(0xff134736),
+                                color: snapShot.data != true
+                                    ? Colors.grey[300]
+                                    : const Color(0xff134736),
                                 borderRadius: const BorderRadius.all(
                                   Radius.circular(16),
                                 ),

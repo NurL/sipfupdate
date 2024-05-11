@@ -43,7 +43,7 @@ class OnboardingPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: Button(
-                    title: 'Login',
+                    title: 'Masuk',
                     onTap: () {
                       Navigator.push(
                         context,
@@ -57,7 +57,7 @@ class OnboardingPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: Button(
-                    title: 'Register',
+                    title: 'Daftar',
                     onTap: () {
                       Navigator.push(
                         context,
