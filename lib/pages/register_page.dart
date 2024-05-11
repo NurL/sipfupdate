@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sipfupdate/components/button.dart';
 import 'package:sipfupdate/controller/register_controller.dart';
+import 'package:sipfupdate/utils/color_constant.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -15,7 +17,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color(0xff134736),
+      backgroundColor: ColorConstant.primary,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,129 +81,128 @@ class _RegisterPageState extends State<RegisterPage> {
                       children: [
                         Column(
                           children: [
-                            Container(
-                              width: double.infinity,
-                              child: Text(
-                                'Nama Lengkap',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            StreamBuilder(
-                              stream: validation.name,
-                              builder: (_, snapShot) => TextField(
-                                onChanged: (val) => validation.sinkName.add(val),
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(50.0),
-                                    ),
-                                  ),
-                                  hintText: 'Nama Lengkap',
-                                  errorText: snapShot.hasError ? snapShot.error.toString() : null,
-                                ),
-                                keyboardType: TextInputType.text,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 40,
-                            ),
-                            Container(
-                              width: double.infinity,
-                              child: Text(
-                                'Email',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            StreamBuilder(
-                              stream: validation.email,
-                              builder: (_, snapShot) => TextField(
-                                onChanged: (val) => validation.sinkEmail.add(val),
-                                decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(50.0),
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 20),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    width: double.infinity,
+                                    child: Text(
+                                      'Nama Lengkap',
+                                      style: TextStyle(
+                                        fontSize: 20,
                                       ),
                                     ),
-                                    hintText: 'Email',
-                                    errorText:
-                                        snapShot.hasError ? snapShot.error.toString() : null),
-                                keyboardType: TextInputType.emailAddress,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 40,
-                            ),
-                            Container(
-                              width: double.infinity,
-                              child: Text(
-                                'Kata Sandi',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            StreamBuilder(
-                              stream: validation.password,
-                              builder: (_, snapShot) => TextField(
-                                obscureText: _isObscure,
-                                onChanged: (val) => validation.sinkPassword.add(val),
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(50.0),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  StreamBuilder(
+                                    stream: validation.name,
+                                    builder: (_, snapShot) => TextField(
+                                      onChanged: (val) => validation.sinkName.add(val),
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(50.0),
+                                          ),
+                                        ),
+                                        hintText: 'Nama Lengkap',
+                                        errorText:
+                                            snapShot.hasError ? snapShot.error.toString() : null,
+                                      ),
+                                      keyboardType: TextInputType.text,
                                     ),
                                   ),
-                                  hintText: 'Password',
-                                  suffixIcon: IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        _isObscure ? _isObscure = false : _isObscure = true;
-                                      });
-                                    },
-                                    icon: _isObscure
-                                        ? Icon(Icons.visibility_off)
-                                        : Icon(Icons.visibility),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 20),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    width: double.infinity,
+                                    child: Text(
+                                      'Email',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                      ),
+                                    ),
                                   ),
-                                  errorText: snapShot.hasError ? snapShot.error.toString() : null,
-                                ),
-                                keyboardType: TextInputType.text,
+                                  StreamBuilder(
+                                    stream: validation.email,
+                                    builder: (_, snapShot) => TextField(
+                                      onChanged: (val) => validation.sinkEmail.add(val),
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(50.0),
+                                            ),
+                                          ),
+                                          hintText: 'Email',
+                                          errorText:
+                                              snapShot.hasError ? snapShot.error.toString() : null),
+                                      keyboardType: TextInputType.emailAddress,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 20),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    width: double.infinity,
+                                    child: Text(
+                                      'Kata Sandi',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                  ),
+                                  StreamBuilder(
+                                    stream: validation.password,
+                                    builder: (_, snapShot) => TextField(
+                                      obscureText: _isObscure,
+                                      onChanged: (val) => validation.sinkPassword.add(val),
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(50.0),
+                                          ),
+                                        ),
+                                        hintText: 'Password',
+                                        suffixIcon: IconButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              _isObscure ? _isObscure = false : _isObscure = true;
+                                            });
+                                          },
+                                          icon: _isObscure
+                                              ? Icon(Icons.visibility_off)
+                                              : Icon(Icons.visibility),
+                                        ),
+                                        errorText:
+                                            snapShot.hasError ? snapShot.error.toString() : null,
+                                      ),
+                                      keyboardType: TextInputType.text,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
                         ),
                         StreamBuilder(
                           stream: validation.submitValid,
-                          builder: (_, snapShot) => Container(
-                            height: 45,
-                            decoration: BoxDecoration(
-                              color: snapShot.data != true ? Colors.grey[300] : Color(0xff134736),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(16),
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Daftar',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
+                          builder: (_, snapShot) => Button(
+                            title: 'Daftar',
+                            onTap: snapShot.data != true ? () => {} : () {},
+                            color: snapShot.data != true
+                                ? ColorConstant.secondary
+                                : ColorConstant.primary,
                           ),
                         )
                       ],

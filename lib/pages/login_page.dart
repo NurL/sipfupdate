@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sipfupdate/components/button.dart';
 import 'package:sipfupdate/pages/home_page.dart';
 import 'package:sipfupdate/utils/color_constant.dart';
 import 'package:sipfupdate/utils/widget_constant.dart';
@@ -135,6 +136,9 @@ class _LoginPageState extends State<LoginPage> {
                                   icon: _isObscure
                                       ? const Icon(Icons.visibility_off)
                                       : const Icon(Icons.visibility),
+                                  icon: _isObscure
+                                      ? const Icon(Icons.visibility_off)
+                                      : const Icon(Icons.visibility),
                                 )),
                                 keyboardType: TextInputType.text,
                               ),
@@ -143,10 +147,12 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         StreamBuilder(
                           stream: validation.submitValid,
-                          builder: (_, snapShot) => InkWell(
+                          builder: (_, snapShot) => Button(
+                            title: 'Masuk',
                             onTap: snapShot.data != true
                                 ? () => {}
                                 : () {
+                                    print('Masuk');
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(builder: (context) => const HomePage()),

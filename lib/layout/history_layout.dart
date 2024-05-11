@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class HistoryLayout extends StatefulWidget {
-  const HistoryLayout({super.key});
+  const HistoryLayout({super.key, this.client});
+  final SupabaseClient? client;
 
   @override
   State<HistoryLayout> createState() => _HistoryLayoutState();
@@ -10,10 +12,26 @@ class HistoryLayout extends StatefulWidget {
 class _HistoryLayoutState extends State<HistoryLayout> {
   bool _isClick = true;
 
+  get client => null;
+
+  // void getVenueHasTenat() async {
+  //   List data = await Supabase.instance.client.from('venue_has_tenant').select('*');
+  // }
+
   @override
   Widget build(BuildContext context) {
+    // final data = Supabase.instance.client.from('venue_has_tenant').select('*');
+    final data2 =
+        Supabase.instance.client.from('venue_has_tenant').select('*, schedules(*), user(*)');
+
+    // final data2 = Supabase.instance.client
+    //     .from('venue_has_tenant')
+    //     .select('*, venue_has_tenant(*), venue(*), schedules(*)')
+    //     .eq('venue_has_tenant.schedules_id', 'scheduless.id')
+    //     .eq('schedules.venue_id', 'venue.id');
+
     return Scaffold(
-      backgroundColor: Color(0xFF0D2F24),
+      backgroundColor: Color.fromARGB(255, 32, 35, 34),
       body: SafeArea(
         child: Column(
           children: [
@@ -119,54 +137,36 @@ class _HistoryLayoutState extends State<HistoryLayout> {
                         ),
                         Expanded(
                           child: _isClick == true
-                              ? ListView(
-                                  children: [
-                                    ListBooking(nama: "Langganan A"),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    ListBooking(nama: "Langganan B"),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    ListBooking(nama: "Langganan C"),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                  ],
+                              ? FutureBuilder(
+                                  future: data2,
+                                  builder: (context, snapshot) {
+                                    if (snapshot.connectionState == ConnectionState.waiting) {
+                                      return Center(child: CircularProgressIndicator());
+                                    } else if (snapshot.hasError) {
+                                      return Text('Error: ${snapshot.error}');
+                                    } else {
+                                      List tenants = snapshot.data
+                                          as List; // Ubah snapshot.hasData menjadi snapshot.data
+                                      print(tenants[0]['schedules_id']);
+                                      return ListView.builder(
+                                        itemCount: tenants.length,
+                                        itemBuilder: ((context, index) {
+                                          Map<String, dynamic> tenant = tenants[
+                                              index]; // Gunakan Map<String, dynamic> untuk data tenant
+                                          return ListTile(
+                                            title: ListBooking(
+                                              nama: tenant['schedules_id'].toString(),
+                                              jadwal: tenant['schedules']['time'].toString(),
+                                              tanggal: tenant['tanggal'].toString(),
+                                              harga: '50000',
+                                            ),
+                                          );
+                                        }),
+                                      );
+                                    }
+                                  },
                                 )
-                              : ListView(
-                                  children: [
-                                    ListBooking(nama: "Langganan D"),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    ListBooking(nama: "Langganan E"),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    ListBooking(nama: "Langganan F"),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    ListBooking(nama: "Langganan G"),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    ListBooking(nama: "Langganan H"),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    ListBooking(nama: "Langganan I"),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    ListBooking(nama: "Langganan J"),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                  ],
-                                ),
+                              : Text('Proses Data ke dua'),
                         ),
                       ],
                     ),
@@ -182,11 +182,16 @@ class _HistoryLayoutState extends State<HistoryLayout> {
 }
 
 class ListBooking extends StatefulWidget {
-  final String? nama;
-  const ListBooking({
-    Key? key,
-    required this.nama,
-  }) : super(key: key);
+  final String nama;
+  final String tanggal;
+  final String jadwal;
+  final String harga;
+  const ListBooking(
+      {super.key,
+      required this.nama,
+      required this.tanggal,
+      required this.jadwal,
+      required this.harga});
 
   @override
   State<ListBooking> createState() => _ListBookingState();
@@ -220,14 +225,14 @@ class _ListBookingState extends State<ListBooking> {
               SizedBox(
                 height: 10,
               ),
-              Text('1 April 2024 . 07:00 - 08:00'),
+              Text('${widget.tanggal} . ${widget.jadwal}'),
               SizedBox(
                 height: 10,
               ),
             ],
           ),
           Text(
-            'Rp 200.000',
+            widget.harga,
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
